@@ -4,8 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 浅时光">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex">
+    <meta name="keywords" content="要点提炼-View的事件体系, 浅时光">
+    <meta name="description" content="View是Android中的所有控件的基类，所有的控件都是直接或间接继承自View，所以View在Android中是一个很重要的概念。本篇将简要介绍View。内容如下：
+
+Android UI界面架构
+View的基础知识
+View的滑动
+弹">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>Hello World | 浅时光</title>
+    <title>要点提炼-View的事件体系 | 浅时光</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -257,13 +262,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        Hello World
+                        要点提炼-View的事件体系
                     </div>
                 </div>
             </div>
@@ -366,21 +371,21 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-03-07
+                    2019-03-11
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        73
+                        693
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        1 分
+                        2 分
                     </div>
                     
                 
@@ -396,15 +401,41 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+                <p><strong>View是Android中的所有控件的基类，所有的控件都是直接或间接继承自View，所以View在Android中是一个很重要的概念。本篇将简要介绍View。<br>内容如下：</strong></p>
+<ul>
+<li>Android UI界面架构</li>
+<li>View的基础知识</li>
+<li>View的滑动</li>
+<li>弹性滑动</li>
+<li>View的事件分发机制</li>
+<li>View的滑动冲突</li>
+</ul>
+<hr>
+<h3 id="一、Android-UI界面架构"><a href="#一、Android-UI界面架构" class="headerlink" title="一、Android UI界面架构"></a>一、Android UI界面架构</h3><p>讲View之前先涉及一点Android的UI结构，后面的View分发机制会涉及一点这里的知识。<br>每个Activity包含一个<code>PhoneWindow</code>对象，<code>PhoneWindow</code>设置<code>DecorView</code>为应用的根视图（顶级视图）。在里面就是我们熟悉的<code>TitleView</code>和<code>ContentView</code>。<code>titleView</code>的位置就是我们那平常看到的App的标题栏，而我们平时在Activit中使用的<code>setContentView（）</code>就是设置<code>ContentView</code>。<br><img src="media/15523080158777/15523192245211.jpg" alt></p>
+<h3 id="二、View的基础知识"><a href="#二、View的基础知识" class="headerlink" title="二、View的基础知识"></a>二、View的基础知识</h3><h4 id="1、什么是View"><a href="#1、什么是View" class="headerlink" title="1、什么是View"></a>1、什么是View</h4><p><strong>View：</strong>它是一种界面层的控价的一种抽象，它代表了一个控价。Android中的所有的控件都继承自它。<br><strong>ViewGroup：</strong>顾名思义这是一个View的组合，它内部包含了多个View。ViewGroup也继承了View，这就意味着View本身就可以是单个控件也可以是多个控价组成的一组控件。<br>从某种角度讲，Android中的控价可以分为两大类：View和ViewGroup。通过ViewGroup，整个界面可以组成一个View树，上层的View要负责下层View的测量与绘制，并传递事件。<br><img src="media/15523080158777/15523186944755.jpg" alt></p>
+<h4 id="2、View的位置参数"><a href="#2、View的位置参数" class="headerlink" title="2、View的位置参数"></a>2、View的位置参数</h4><p>a. Android坐标系：以屏幕左上角为坐标原点，<strong>向右</strong>为x轴正方向，<strong>向下</strong>为y轴正方向。<br>b. View的位置主要由它的四个顶点决定：top、left、right、bottom</p>
+<ul>
+<li>top：左上角的纵坐标</li>
+<li>left：左上角的横坐标</li>
+<li>right：右下角的横坐标</li>
+<li>bottom：右下角的纵坐标<br><strong>这些都是相对于View的父容器而言的，是一种相对坐标</strong><br><img src="media/15523080158777/15523196534939.jpg" alt><br>由上图就很容易的得到View的宽高和坐标的关系：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">width = right - left</span><br><span class="line">height = bottom - top</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>我们了解了上述View属性，那我们怎么获取这些属性呢。别着急，其实View还提供了get方法帮助我们获取上述属性。</p>
+<ul>
+<li>left = getLeft()</li>
+<li>Right = getRight()</li>
+<li>top = getTop()</li>
+<li>bottom = getBottom</li>
+<li>width = getWidth</li>
+<li>height = getHeight</li>
+</ul>
+<p>c.从Android3.0开始，View增加了额外的几个参数：x、y、translationX、translationY。<br>其中x和y是View左上角的坐标，translationX和translationY是View的左上角相对于父容器的偏移量，他们的默认值均为0。和View的基本属性一样，这些参数也是相对于View父容器的，而且View也提供了set/get方法。</p>
+<p><img src="media/15523080158777/15523201252652.jpg" alt></p>
+<blockquote>
+<p>x = left + translationX<br>y = top + translationY</p>
+</blockquote>
+<p><strong>注意：</strong> View在移动的过程中，top和left表示的是原始左上角的位置信息，其值并不会发生改变，此时发生改变的是x、y、translationX和translationUY这四个参数。</p>
 
             </div>
             <hr>
@@ -552,7 +583,7 @@
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">浅时光</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/03/07/hello-world/" class="b-link-green">Hello World</a>
+                    <a href="/2019/03/11/yao-dian-ti-lian-view-de-shi-jian-ti-xi/" class="b-link-green">要点提炼-View的事件体系</a>
                 </p>
             </div>
         </div>
@@ -834,7 +865,47 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/03/11/yao-dian-ti-lian-view-de-shi-jian-ti-xi/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="要点提炼-View的事件体系">
+                        
+                        <span class="card-title">要点提炼-View的事件体系</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">View是Android中的所有控件的基类，所有的控件都是直接或间接继承自View，所以View在Android中是一个很重要的概念。本篇将简要介绍View。内容如下：
+
+Android UI界面架构
+View的基础知识
+View的滑动
+弹</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-user fa-fw"></i>
+                            Yazhou Su
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/03/07/activity-sheng-ming-zhou-qi/">
                     <div class="card-image">
@@ -848,41 +919,8 @@
                 <div class="card-content article-content">
                     <div class="summary">1.返回栈Android时使用任务（task）来管理活动的，一个任务就是一组存放在栈里的活动的集合，这个栈也被称作返回栈。栈是一种后进先出的数据结构。在默认情况下，每当我们启用一个新的活动时，这个活动就会放在返回栈的最顶层，当调用Back或</div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-07
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            Yazhou Su
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/03/05/15517997196480/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="ViewPage深入解析（一）">
-                        
-                        <span class="card-title">ViewPage深入解析（一）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">话说小伙伴们在使用App的时候有没有注意到很多App的首页都是可以左右滑动的页面呢？很多App还有绚丽的轮播图广告。那么如何实现这样的效果呢？相信很多小伙伴都知道可以用ViewPager来完成！不过也许很多小伙伴也跟皮卡丘一样，虽然一直在使</div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-05
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-07
                             </span>
                         <span class="publish-author">
                             
