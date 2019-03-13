@@ -4,33 +4,6 @@
   
     
     <entry>
-      <title>要点提炼-View的事件体系</title>
-      <link href="/2019/03/11/yao-dian-ti-lian-view-de-shi-jian-ti-xi/"/>
-      <url>/2019/03/11/yao-dian-ti-lian-view-de-shi-jian-ti-xi/</url>
-      
-        <content type="html"><![CDATA[<p><strong>View是Android中的所有控件的基类，所有的控件都是直接或间接继承自View，所以View在Android中是一个很重要的概念。本篇将简要介绍View。<br>内容如下：</strong></p><ul><li>Android UI界面架构</li><li>View的基础知识</li><li>View的滑动</li><li>弹性滑动</li><li>View的事件分发机制</li><li>View的滑动冲突</li></ul><hr><h3 id="一、Android-UI界面架构"><a href="#一、Android-UI界面架构" class="headerlink" title="一、Android UI界面架构"></a>一、Android UI界面架构</h3><p>讲View之前先涉及一点Android的UI结构，后面的View分发机制会涉及一点这里的知识。<br>每个Activity包含一个<code>PhoneWindow</code>对象，<code>PhoneWindow</code>设置<code>DecorView</code>为应用的根视图（顶级视图）。在里面就是我们熟悉的<code>TitleView</code>和<code>ContentView</code>。<code>titleView</code>的位置就是我们那平常看到的App的标题栏，而我们平时在Activit中使用的<code>setContentView（）</code>就是设置<code>ContentView</code>。<br><img src="http://ww1.sinaimg.cn/large/0077HGE3ly1g0zrn2iri7j30ve0g0k2g.jpg" alt></p><h3 id="二、View的基础知识"><a href="#二、View的基础知识" class="headerlink" title="二、View的基础知识"></a>二、View的基础知识</h3><h4 id="1、什么是View"><a href="#1、什么是View" class="headerlink" title="1、什么是View"></a>1、什么是View</h4><p><strong>View：</strong>它是一种界面层的控价的一种抽象，它代表了一个控价。Android中的所有的控件都继承自它。<br><strong>ViewGroup：</strong>顾名思义这是一个View的组合，它内部包含了多个View。ViewGroup也继承了View，这就意味着View本身就可以是单个控件也可以是多个控价组成的一组控件。<br>从某种角度讲，Android中的控价可以分为两大类：View和ViewGroup。通过ViewGroup，整个界面可以组成一个View树，上层的View要负责下层View的测量与绘制，并传递事件。<br><img src="http://ww1.sinaimg.cn/large/0077HGE3ly1g0zrnrvi8aj30j60b3dj1.jpg" alt></p><h4 id="2、View的位置参数"><a href="#2、View的位置参数" class="headerlink" title="2、View的位置参数"></a>2、View的位置参数</h4><p>a. Android坐标系：以屏幕左上角为坐标原点，<strong>向右</strong>为x轴正方向，<strong>向下</strong>为y轴正方向。<br>b. View的位置主要由它的四个顶点决定：top、left、right、bottom</p><ul><li>top：左上角的纵坐标</li><li>left：左上角的横坐标</li><li>right：右下角的横坐标</li><li>bottom：右下角的纵坐标<br><strong>这些都是相对于View的父容器而言的，是一种相对坐标</strong><br><img src="http://ww1.sinaimg.cn/large/0077HGE3ly1g0zro3hdndj30c50bkq42.jpg" alt><br>由上图就很容易的得到View的宽高和坐标的关系：<pre><code>width = right - leftheight = bottom - top</code></pre>我们了解了上述View属性，那我们怎么获取这些属性呢。别着急，其实View还提供了get方法帮助我们获取上述属性。</li><li>left = getLeft()</li><li>Right = getRight()</li><li>top = getTop()</li><li>bottom = getBottom</li><li>width = getWidth</li><li>height = getHeight</li></ul><p>c.从Android3.0开始，View增加了额外的几个参数：x、y、translationX、translationY。<br>其中x和y是View左上角的坐标，translationX和translationY是View的左上角相对于父容器的偏移量，他们的默认值均为0。和View的基本属性一样，这些参数也是相对于View父容器的，而且View也提供了set/get方法。</p><p><img src="http://ww1.sinaimg.cn/large/0077HGE3ly1g0zroc04s9j30kl0hd788.jpg" alt></p><blockquote><p>x = left + translationX<br>y = top + translationY</p></blockquote><p><strong>注意：</strong> View在移动的过程中，top和left表示的是原始左上角的位置信息，其值并不会发生改变，此时发生改变的是x、y、translationX和translationUY这四个参数。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> android </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> android </tag>
-            
-            <tag> 开发艺术探索-要点提炼 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Activity生命周期</title>
       <link href="/2019/03/07/activity-sheng-ming-zhou-qi/"/>
       <url>/2019/03/07/activity-sheng-ming-zhou-qi/</url>
