@@ -4,8 +4,8 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, 浅时光">
-    <meta name="description" content="标签 | 浅时光">
+    <meta name="keywords" content="分类: android, 浅时光">
+    <meta name="description" content="分类: android | 浅时光">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +13,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>标签 | 浅时光</title>
+    <title>分类: android | 浅时光</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -283,29 +283,23 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     
 
-<div id="tags" class="container chip-container">
+<div id="category-cloud" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fa fa-tags"></i>&nbsp;&nbsp;文章标签
+                <i class="fa fa-bookmark"></i>&nbsp;&nbsp;文章分类
             </div>
             <div class="tag-chips">
                 
                 
-                <a href="/tags/android/" title="android: 1">
+                
+                <a href="/categories/android/" title="android: 1">
                     <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="android" style="background-color: #F9EBEA;">android
+                             chip-active " style="background-color: #F9EBEA;">android
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
-                
-                <a href="/tags/要点提炼——开发艺术探索/" title="要点提炼——开发艺术探索: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default " data-tagname="要点提炼——开发艺术探索" style="background-color: #F5EEF8;">要点提炼——开发艺术探索
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
                 
             </div>
         </div>
@@ -313,31 +307,64 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 </div>
 
     
-    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
-<style type="text/css">
-    #tag-wordcloud {
-        width: 100%;
-        height: 300px;
-    }
-</style>
 
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="tag-wordcloud" class="card-content"></div>
-    </div>
-</div>
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2019/03/11/yao-dian-ti-lian-view-de-shi-jian-ti-xi/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="要点提炼-View的事件体系">
+                            
+                            <span class="card-title">要点提炼-View的事件体系</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary">
+                            
+                                View是Android中的所有控件的基类，所有的控件都是直接或间接继承自View，所以View在Android中是一个很重要的概念。本篇将
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-11
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/android/" class="post-category" target="_blank">
+                                    android
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
 
-<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
-<script type="text/javascript">
-    
-
-    $('#tag-wordcloud').jQCloud([{"text":"android","weight":1,"link":"http://yoursite.com/tags/android/"},{"text":"要点提炼——开发艺术探索","weight":1,"link":"http://yoursite.com/tags/要点提炼——开发艺术探索/"}], {
-        autoResize: true
-    });
-</script>
-    
-
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/android/" target="_blank">
+                            <span class="chip bg-color">android</span>
+                        </a>
+                        
+                        <a href="/tags/要点提炼——开发艺术探索/" target="_blank">
+                            <span class="chip bg-color">要点提炼——开发艺术探索</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
 
 <footer class="page-footer bg-color">
     <div class="container row center-align">
