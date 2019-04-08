@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>要点提炼——类与对象</title>
+      <link href="/2019/04/02/yao-dian-ti-lian-lei-yu-dui-xiang/"/>
+      <url>/2019/04/02/yao-dian-ti-lian-lei-yu-dui-xiang/</url>
+      
+        <content type="html"><![CDATA[<h2 id="一-类"><a href="#一-类" class="headerlink" title="一. 类"></a>一. 类</h2><h3 id="1-类的定义"><a href="#1-类的定义" class="headerlink" title="1. 类的定义"></a>1. 类的定义</h3><p>在Java中，类是一种引用型数据类型。类是一种现实世界的事物的抽象，它包含了事物的<strong>属性</strong>和<strong>行为</strong><a href></a>,对应类中的<strong>属性</strong>和<strong>方法</strong><br>java语言的类的格式：</p><pre><code> [修饰符] class 类名 {    类体 }</code></pre><pre><code>public class Dog{   String breed;   int age;   String color;   void barking(){   }   void hungry(){   }   void sleeping(){   }}</code></pre><blockquote><p>在Java语言中，Java的所用东西都要在类中实现。</p></blockquote><h3 id="2-类体"><a href="#2-类体" class="headerlink" title="2. 类体"></a>2. 类体</h3><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>一个类中可以包含以下类型变量</p><ul><li><strong>局部变量：</strong>在方法、构造方法或者语句块中定义的变量被称为局部变量。变量声明和初始化都是在方法中，方法结束后，变量就会自动销毁。</li><li><strong>成员变量：</strong>成员变量是定义在类中，方法体之外的变量。这种变量在创建对象的时候实例化。成员变量可以被类中方法、构造方法和特定类的语句块访问。</li><li><strong>类变量：</strong>类变量也声明在类中，方法体之外，但必须声明为static类型。</li></ul><h4 id="成员方法"><a href="#成员方法" class="headerlink" title="成员方法"></a>成员方法</h4><p>类中设置的方法，Java建议类的成员方法的修饰符使用<code>private</code>。Java在调用方法的时候可以用类的实例化对象调用方法,如：<code>new 类名().方法名()</code></p><ul><li><strong>实例方法:</strong> </li></ul><pre><code>[修饰符] 返回值类型 成员方法名（参数列表）[throws 异常类型列表] {     成员方法体}</code></pre><ul><li><p><strong>成员方法的重载</strong><br>所谓的成员方法的重载是指在一个类中，同一个名称的成员方法可以被多次定义的现象，在每一个方法的参数类型和个数都不同。</p></li><li><p><strong>构造方法</strong><br>构造方法是在构造类的对象是使用的方法，其主要的作用就是初始化成员变量。构造方法不需要返回任何值，它在构造类对象时自动调用。构造方法也可以重载。注意：构造方法名和类名必须相同。</p><pre><code>[修饰符] 类名(参数列表)</code></pre></li></ul><p>通常一个类中应该包含的成员方法：</p><ul><li><strong>构造方法：</strong>至少包含一个不带参数的构造方法与一个带完整参数的构造方法</li><li><strong>更改器：</strong>可以保证在对象创建之后，可以更改对象的状态</li><li><strong>获取器：</strong>可以保证随时获得对象的状态值</li><li><strong>toString：</strong>将对象的状态值转换为字符串</li><li><strong>equals：</strong>实现判断两个对象是否相等</li></ul><h3 id="3-类之间的关系"><a href="#3-类之间的关系" class="headerlink" title="3. 类之间的关系"></a>3. 类之间的关系</h3><blockquote><p>类之间的关系可以归结为3类：依赖、聚合和继承</p></blockquote><ul><li>依赖：A类成员方法调用B类的成员方法</li><li>聚合：类A的对象包含类B的对象</li><li>继承：类A继承于类B，即类B中有类A的全部成员变量和成员方法</li></ul><h2 id="二-对象"><a href="#二-对象" class="headerlink" title="二. 对象"></a>二. 对象</h2><blockquote><p>对象是类的一个实例，有状态和行为。</p></blockquote><h3 id="1-创建对象"><a href="#1-创建对象" class="headerlink" title="1. 创建对象"></a>1. 创建对象</h3><ul><li>定义对象的语法格式：</li></ul><pre><code>[修饰符] 类名 对象名;Data data;</code></pre><ul><li>创建对象</li></ul><pre><code>new 类名(参数列表);new Data(10);</code></pre><ul><li>定义创建对象也可以放在一起进行</li></ul><pre><code>Time time = new Time(10);</code></pre><p><strong>new运算符主要完成两项工作：</strong></p><ol><li>为对象分配内存空间</li><li>根据提供的参数格式调用与之匹配的构造方法，实现初始化成员变量的操作，然后返回对象的引用</li></ol><h3 id="2-对象成员的引用"><a href="#2-对象成员的引用" class="headerlink" title="2. 对象成员的引用"></a>2. 对象成员的引用</h3><pre><code>对象名.成员变量;对象名.成员方法(参数列表)</code></pre><h3 id="3-对象的清除"><a href="#3-对象的清除" class="headerlink" title="3. 对象的清除"></a>3. 对象的清除</h3><p>在Java中，对象的收回是通过Java虚拟机自动收回的，不用我们操心。</p><h2 id="三-访问特性控制"><a href="#三-访问特性控制" class="headerlink" title="三. 访问特性控制"></a>三. 访问特性控制</h2><blockquote><p>Java语言是通过控制标识符来控制类、数据、方法和接口的共享的，Java提供了四种访问特性控制符：</p><ol><li>默认访问特性</li><li>public（公有）访问特性</li><li>private （私有）访问特性</li><li>protected （保护）访问特性</li></ol></blockquote><h3 id="1-默认访问特性"><a href="#1-默认访问特性" class="headerlink" title="1. 默认访问特性"></a>1. 默认访问特性</h3><p>如果在定义类、接口、成员变量与成员方法时没有定义访问特性，那么Java默认他的访问特性为默认访问特性。具有默认访问特性的类、接口、成员变量与成员方法，只能被本类和同一个包中的其他类、接口接成员方法应用。（他可以阻止其他包任何形式的引用。）</p><h3 id="2-public访问特性"><a href="#2-public访问特性" class="headerlink" title="2. public访问特性"></a>2. public访问特性</h3><p>public访问特性最具有开放性，没有任何访问限制。<br>通常会将公共类或者作为公共接口的的成员方法指定为public访问特性；建议不要将成员变量设置为public，否则会破坏代数据的隐藏性。</p><h3 id="3-private访问特性"><a href="#3-private访问特性" class="headerlink" title="3. private访问特性"></a>3. private访问特性</h3><p>将数据与操作封装在一起，并将数据的组织隐藏起来，利用成员方法作为对外的操作接口。这样不当可以提高程序的安全性和可靠性，还有有益于日后的维护、扩展和重用。<br>这种访问特性实现数据隐藏的最佳方式。<br>应用于类成员。只能被本类直接引用。</p><h3 id="4-protected访问特性"><a href="#4-protected访问特性" class="headerlink" title="4. protected访问特性"></a>4. protected访问特性</h3><p>可以被本类、本包中的其他类和其他包中的子类访问。他的访问特性介于默认和public之间。</p><blockquote><p>小技巧：如何阅读代码<br>作为一个程序员，面对一段从未见识过的代码，不必每行代码都细读（当然，这也不可能，真正的项目里代码有万千行，你自己读读试试），只需要将代码按照结构分成不同段，大致了解每一部分代码的事项的功能即可。比如，一段Java代码，按照类分成不同的部分，基本一段好的程序，从类的名字中就能知道这个类的作用的。</p></blockquote><h2 id="四-内部类"><a href="#四-内部类" class="headerlink" title="四. 内部类"></a>四. 内部类</h2><p>Java的类是允许嵌套的，嵌套在一个类内部的被称为<strong>内部类</strong>。没有嵌套在任何类中的类被称为顶层类。</p><h2 id="五-类的静态成员"><a href="#五-类的静态成员" class="headerlink" title="五. 类的静态成员"></a>五. 类的静态成员</h2><p>Java语言提供了两种形式的成员：</p><ul><li>静态成员</li><li>实例成员（非静态）</li></ul><h3 id="1-静态成员变量"><a href="#1-静态成员变量" class="headerlink" title="1. 静态成员变量"></a>1. 静态成员变量</h3><ul><li>在分文修饰符之后加上static修饰符就称为静态成员变量。例如：<code>public static int staticMember</code></li><li>静态成员变量值在家在类是创建一个副本，无论未来创建同一个类的多少个对象都将共享同一个副本。</li></ul><h3 id="2-静态成员方法"><a href="#2-静态成员方法" class="headerlink" title="2. 静态成员方法"></a>2. 静态成员方法</h3><h2 id="六-可编辑字符串类"><a href="#六-可编辑字符串类" class="headerlink" title="六. 可编辑字符串类"></a>六. 可编辑字符串类</h2><p>可编辑的字符串类：StringBuffer<br>StringBuffer类滴哦你故意在java.lang包中，其中包含以下3个private成员变量</p><ul><li>private char value[]：存放字符串的缓冲区</li><li>private int count：缓冲区中存放字符的个数</li><li>private boolean shared：缓冲区是否共享的标志</li></ul><p>另外，另外还提供了3个构造方法：</p><ul><li>public stringBuffer();  默认缓冲区的大小为16个字符</li><li>public stringBuffer(int length); 缓冲区的大小为length个字符</li><li>public stringBuffer(String str); 缓冲区的大小为字符串str的长度加上16，并将str存入缓冲区</li></ul><p><strong>StringBuffer用于获取可变字符串相应信息的public成员方法：</strong></p><ol><li>ing length() 返回当前可变字符床的长度</li><li>int capacity() 放回当前缓冲区的大小</li><li>char charAt(int index） 返回下标为index的位置的字符串，第一个字符的下标为0.（如果index非法将抛出IndexOutOfBoundsException异常）</li><li>void getChars(int sreBegin, int srcEnd, char dst[], int destBegin) 获取从sreBegin到srcEnd的字符串，并存入dst数组中，在dst中的起始位置为dstBegin。如果srcBegin和srcEnd非法将抛出StringIndexOutOfBoundsException异常</li><li>String substring(int start, int end) 返回从start到end的字符串</li><li>int indexOf(String str, int fromIndex) 返回字符串str在缓冲区从fromIndex开始，第一次出现的手字符的下标。</li><li>String toString(）将StringBuffer内容转换成String形式输出</li><li>void setChar(int index, char ch)将字符串中下标为index的字符设置为ch</li><li>StringBuffer append(obj) 这个成员方法利用String类中的ValueOf(）方法，将obj转换成字符串，并将这些字符串追加到缓冲区的尾部</li><li>StringBuffer delete(int start，int end) 删除缓冲区start到end的所有字符</li><li>StringBuffer replace(int start, int end, String str）将str字符串替换从start～end-1 的字符串并返回修改后的StringBuffer对象</li><li>StringBuffer insert(int index, char str[], int offset, int len) 将str数组从0ffset开始，长度为len的字符串插入到缓冲区从index起始的位置处</li><li>StringBuffer inset(int offset, Object obj) 将obj字符串插入到缓冲区偏移量为offset的位置处。</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 要点提炼 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>渝中召开领导干部大会 传达学习陈敏尔书记参加渝中代表团审议时的讲话精神</title>
       <link href="/2019/03/26/yu-zhong-zhao-kai-ling-dao-gan-bu-da-hui/"/>
       <url>/2019/03/26/yu-zhong-zhao-kai-ling-dao-gan-bu-da-hui/</url>
@@ -11,6 +38,60 @@
         <content type="html"><![CDATA[<p><img src="https://mmbiz.qpic.cn/mmbiz_gif/OHD6z6fDlM9822fpn79tIribC0iaaH1QkzDAX4klv2ePEm8FsXkiatrChPP3NnrjLmngQ88zL0YIJc9DqamF6icseA/640?wx_fmt=gif&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt></p><blockquote><p><img src="http://ww1.sinaimg.cn/large/0077HGE3ly1g1m2kfkimtj30u00gwkfp.jpg" alt><br>今（1）日，渝中召开领导干部大会，传达学习市委书记陈敏尔在参加渝中代表团审议时的讲话精神。渝中区委书记黄玉林出席会议并讲话，区委副书记、区长商奎，区人大常委会主任米绍林，区政协主席陈大奎，区委副书记何家利以及全体在家区级领导，全区正处级以上领导干部参加会议。</p></blockquote><blockquote><p>黄玉林指出，陈敏尔书记到渝中代表团参加审议，是对渝中工作的关心和厚爱，是对全区干部群众凝心聚力、砥砺奋进推进高质量发展、创造高品质生活的有力鞭策。全区上下一定要认真学习领会、深入贯彻落实陈敏尔书记参加渝中代表团审议时的讲话精神，全力以赴推动市委要求在渝中落实落地。<br><img src="http://ww1.sinaimg.cn/large/0077HGE3ly1g1m2l3w53ij30u00gw4hn.jpg" alt><br>黄玉林强调，要深刻领会把握陈敏尔书记关于“紧紧围绕习近平总书记对重庆提出的重要指示要求，进一步提高政治站位和战略站位，增强战略谋划力、战役执行力”的指示精神，把准方向保持定力，确保中央要求和市委部署率先在渝中落地生根、开花结果。要自觉维护习近平总书记党中央的核心、全党的核心地位，维护党中央权威和集中统一领导，牢固树立“四个意识”，坚定“四个自信”，以实际行动兑现市委“三个确保”的政治承诺。要深学笃用习近平新时代中国特色社会主义思想，把总书记对重庆的殷殷嘱托领会好，始终沿着总书记指引的方向前进。要按照陈敏尔书记“学在深处、谋在新处、干在实处、走在前列”要求，把总书记对重庆提出的“两点”定位、“两地”“两高”目标和营造良好政治生态、做到“四个扎实”的重要指示要求，落实为渝中行动，转化为实在成效。<br><img src="http://ww1.sinaimg.cn/large/0077HGE3ly1g1m2m4y131j30u00mi1kx.jpg" alt><br>黄玉林强调，要深刻领会把握陈敏尔书记关于“把构建现代产业体系作为城市发展的重要支撑”的指示要求，坚定方向突出重点，创新发展金融业，优化发展高端商贸业，融合发展文化旅游业，升级发展康养产业，用好优势医疗、教育资源，推动现代服务业创新升级发展。要深刻领会把握陈敏尔书记“大力推进社会治理现代化，贯彻以人民为中心的发展思想，让人民群众在城市生活更方便、更舒心、更美好”的指示要求，夯实基层强化基础，把安全放在城市管理服务第一位，增强城市管理服务的人文关怀，创新城市管理服务方式方法，全面提高城市管理服务水平。要深刻领会把握陈敏尔书记对渝中经济社会发展成绩的肯定，增强信心坚定决心，把市委市政府对渝中的肯定转化为发展的强大动力，牢记中心城区职责使命不动摇，顺应城市工作新形势、改革发展新要求、人民群众新期待，不断奋发有为、担当作为，着力打造适应服务业发展现代化和社会治理现代化要求的高素质干部队伍，凝聚起推动渝中高质量发展的强大合力。</p></blockquote>]]></content>
       
       
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>要点提炼——数组与字符串</title>
+      <link href="/2019/03/26/yao-dian-ti-lian-shu-zu-yu-zi-fu-chuan/"/>
+      <url>/2019/03/26/yao-dian-ti-lian-shu-zu-yu-zi-fu-chuan/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1、数组"><a href="#1、数组" class="headerlink" title="1、数组"></a>1、数组</h2><h3 id="1-1-一维数组"><a href="#1-1-一维数组" class="headerlink" title="1.1 一维数组"></a>1.1 一维数组</h3><h4 id="1-一维数组的声明方法："><a href="#1-一维数组的声明方法：" class="headerlink" title="1. 一维数组的声明方法："></a>1. 一维数组的声明方法：</h4><pre><code>int[] a = new int[n];   //表示a[]是有n个元素的整形数组</code></pre><p><strong>强制：声明数组时,强制[]放在基本数据类型后面，不要放在变量后面。放在基本数据类型后面表示声明一个int类型的数组。</strong></p><h4 id="2-一维数组初始化："><a href="#2-一维数组初始化：" class="headerlink" title="2. 一维数组初始化："></a>2. 一维数组初始化：</h4><ul><li><strong>静态初始化</strong>：<code>int[] a = {1,2,3,4};</code></li><li><strong>动态初始化</strong>：<code>a[0] = 3;</code></li></ul><h4 id="3-一维数组元素的访问："><a href="#3-一维数组元素的访问：" class="headerlink" title="3. 一维数组元素的访问："></a>3. 一维数组元素的访问：</h4><p>数组的元素是通过索引访问的。数组索引从0开始，所以索引值从0到arrayRefVar.length-1。</p><pre><code>a[index]; //其中index为数组下标，表示数组中第index-1个存储空间。</code></pre><h3 id="1-2-二维数组"><a href="#1-2-二维数组" class="headerlink" title="1.2 二维数组"></a>1.2 二维数组</h3><h4 id="二维数组声明方法："><a href="#二维数组声明方法：" class="headerlink" title="二维数组声明方法："></a>二维数组声明方法：</h4><pre><code>int[][] a = new int[m][n];  //m，n为数组下标</code></pre><h4 id="数组初始化："><a href="#数组初始化：" class="headerlink" title="数组初始化："></a>数组初始化：</h4><ul><li><strong>静态初始化：</strong></li></ul><pre><code>int[][] a = {             {1,2,3},             {4,5,6},             {7,8,9}};</code></pre><ul><li><strong>动态初始化：</strong></li></ul><pre><code>int[][] a = new int[m][n]; a[0][1] = 4;   //动态的分别给字符串的每一个元素赋值</code></pre><h4 id="二维数组的访问："><a href="#二维数组的访问：" class="headerlink" title="二维数组的访问："></a>二维数组的访问：</h4><p>二维数组的访问和一维数组的访问类似</p><h2 id="2、字符串"><a href="#2、字符串" class="headerlink" title="2、字符串"></a>2、字符串</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 要点提炼 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JAVA基础</title>
+      <link href="/2019/03/21/yao-dian-ti-lian-java-ji-chu/"/>
+      <url>/2019/03/21/yao-dian-ti-lian-java-ji-chu/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-JAVA基本语法"><a href="#1-JAVA基本语法" class="headerlink" title="1. JAVA基本语法"></a>1. JAVA基本语法</h2><p>编写Java程序时，应注意以下几点：</p><ul><li><strong>大小写敏感</strong>：Java是大小写敏感的，这就意味着标识符Hello与hello是不同的。</li><li><strong>类名</strong>：对于所有的类来说，类名的首字母应该大写。如果类名由若干单词组成，那么每个单词的首字母应该大写，例如 MyFirstJavaClass(驼峰命名法) 。</li><li><strong>方法名</strong>：所有的方法名都应该以小写字母开头。如果方法名含有若干单词，则后面的每个单词首字母大写（驼峰命名法）。</li><li><strong>源文件名</strong>：<strong>源文件名必须和类名相同</strong>。当保存文件的时候，你应该使用类名作为文件名保存（切记Java是大小写敏感的），文件名的后缀为.java。（如果文件名和类名不相同则会导致编译错误）。</li><li><strong>主方法入口</strong>：所有的Java程序由<code>public static void main(String args[])</code>方法开始执行。</li></ul><h2 id="2-JAVA编程格式"><a href="#2-JAVA编程格式" class="headerlink" title="2. JAVA编程格式"></a>2. JAVA编程格式</h2><pre><code>import java.util.Scanner;public class Main {    public static void main(String[] args) throws Exception{        System.out.println(config.a + config.b);        Scanner in = new Scanner(System.in);        int a = in.nextInt();        System.out.println(a);    }}</code></pre><h2 id="3-JAVA数据类型"><a href="#3-JAVA数据类型" class="headerlink" title="3. JAVA数据类型"></a>3. JAVA数据类型</h2><h3 id="3-1-基本数据类型"><a href="#3-1-基本数据类型" class="headerlink" title="3.1 基本数据类型"></a>3.1 基本数据类型</h3><p>byte、char、short、int、long、float、double、boolean</p><table><thead><tr><th>数据类型</th><th>类别</th><th>位数</th><th>范围</th><th>默认值</th></tr></thead><tbody><tr><td>byte</td><td>字节型</td><td>8位</td><td>-2^7 ～ 2^7-1</td><td>0</td></tr><tr><td>char</td><td>字符型</td><td>16位</td><td>\u0000 ～ \uffff (0~65535)</td><td>0</td></tr><tr><td>short</td><td>短整型</td><td>16位</td><td>-2^15 ～ 2^15-1</td><td>0</td></tr><tr><td>int</td><td>整型</td><td>32位</td><td>-2^31 ～ 2^31-1</td><td>0</td></tr><tr><td>long</td><td>长整型</td><td>64位</td><td>-2^63 ～ 2^63-1</td><td>0L</td></tr><tr><td>float</td><td>单精度浮点型</td><td>32位</td><td>-3.4 X 10^38 ～ 3.4 X 10^38</td><td>0.0f</td></tr><tr><td>double</td><td>双精度浮点型</td><td>64位</td><td>-1.7 X 10^308 ～ 1.7 X 10^308</td><td>0.0d</td></tr><tr><td>boolean</td><td>布尔类型</td><td></td><td>true、false</td><td>false</td></tr></tbody></table><h3 id="3-2-数据类型转换规则"><a href="#3-2-数据类型转换规则" class="headerlink" title="3.2 数据类型转换规则"></a>3.2 数据类型转换规则</h3><p>JAVA中的数据类型在定义时就已经确定了，不能随意改变。但是JAVA允许有限度的进行类型转换处理：<strong>自动类型转换</strong>、<strong>强制类型转换</strong><br><img src="http://ww1.sinaimg.cn/large/0077HGE3ly1g1arnl1y66j315q0nowgk.jpg" alt></p><h4 id="3-2-1-自动类型转换"><a href="#3-2-1-自动类型转换" class="headerlink" title="3.2.1 自动类型转换"></a>3.2.1 自动类型转换</h4><p><img src="http://ww1.sinaimg.cn/large/0077HGE3ly1g1fvxqrpgtj32xj16mx6t.jpg" alt></p><h4 id="3-2-2-强制类型转换"><a href="#3-2-2-强制类型转换" class="headerlink" title="3.2.2 强制类型转换"></a>3.2.2 强制类型转换</h4><p>将高级数据转换成低级数据，只能用强制类型转换，通常在要求强制类型转换的变量名前用()括号上所要强制转换的类型符号。如：</p><pre><code>short s；byte b = (byte)s;</code></pre><h2 id="4-直接量、常量与变量"><a href="#4-直接量、常量与变量" class="headerlink" title="4. 直接量、常量与变量"></a>4. 直接量、常量与变量</h2><ul><li><strong>直接量</strong>：就是数据类型的数值，如int型：3就是直接量</li><li><strong>常量</strong>：特定标识符表示的直接量，赋值之后就不可以更改：<pre><code>[修饰符] final 数据类型 常量标识符 [= 直接量]public final int a = 3;</code></pre></li><li><strong>变量</strong>：存储数据的特定标识符，可以更改存储的数据：<pre><code>数据类型 常量标识符 [= 直接量]int a = 3;</code></pre></li></ul><h2 id="5-JAVA的输入输出方式"><a href="#5-JAVA的输入输出方式" class="headerlink" title="5. JAVA的输入输出方式"></a>5. JAVA的输入输出方式</h2><ul><li><strong>输入</strong>：Java的输入是通过Scanner类实现的，在时用Scanner类时要在项目最顶端倒入Scanner类，如：import java.util.Scanner;</li></ul><pre><code>Scanner scan = new Scanner(System.in) // System.in是系统的System类的输入流int a = scan.nextInt();</code></pre><p>nextInt是Scanner类的一个读取数据的成员方法。Scanner类内部定义了许多的成员方法用于读取不同数据类型的数据：<br><img src="http://ww1.sinaimg.cn/large/0077HGE3ly1g1fxdwk2kvj32zn1f2qvb.jpg" alt></p><ul><li><strong>输出</strong>：Java的最简单的输出方式：<pre><code>System.out.print(&quot;Hello World:&quot; + a);</code></pre><strong>注意“+”</strong>：+在里面充当连接符的角色，但是当两个基本数据类型的变量被+连接时，他们会进行加操作；字符串和数据类型变量被+连接时，数据类型变量会自动转换成字符串。</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> JAVA </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> java </tag>
+            
+            <tag> 要点提炼 </tag>
+            
+        </tags>
       
     </entry>
     
