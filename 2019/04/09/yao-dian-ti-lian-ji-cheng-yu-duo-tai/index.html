@@ -4,12 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="要点提炼——类与对象, 浅时光">
-    <meta name="description" content="一. 类1. 类的定义在Java中，类是一种引用型数据类型。类是一种现实世界的事物的抽象，它包含了事物的属性和行为,对应类中的属性和方法java语言的类的格式：
- [修饰符] class 类名 {
-    类体
- }
-public clas">
+    <meta name="keywords" content="要点提炼——继承与多态, 浅时光">
+    <meta name="description" content="一、类的继承在面向对象编程中，继承是一个缩短代码以及复用代码的良好的机制。一个继承了父类的子类，包含了父类所有的方法，也可以重载或添加新的内容。
+1. 语法：[修饰符] class 子类名 extends 父类名 {
+    //子类体；
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +16,7 @@ public clas">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>要点提炼——类与对象 | 浅时光</title>
+    <title>要点提炼——继承与多态 | 浅时光</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -267,7 +266,7 @@ public clas">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        要点提炼——类与对象
+                        要点提炼——继承与多态
                     </div>
                 </div>
             </div>
@@ -387,21 +386,21 @@ public clas">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-04-02
+                    2019-04-09
                 </div>
 
                 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.1k
+                        2.4k
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        7 分
+                        9 分
                     </div>
                     
                 
@@ -417,141 +416,189 @@ public clas">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="一-类"><a href="#一-类" class="headerlink" title="一. 类"></a>一. 类</h2><h3 id="1-类的定义"><a href="#1-类的定义" class="headerlink" title="1. 类的定义"></a>1. 类的定义</h3><p>在Java中，类是一种引用型数据类型。类是一种现实世界的事物的抽象，它包含了事物的<strong>属性</strong>和<strong>行为</strong><a href></a>,对应类中的<strong>属性</strong>和<strong>方法</strong><br>java语言的类的格式：</p>
-<pre><code> [修饰符] class 类名 {
-    类体
- }
-</code></pre><pre><code>public class Dog{
-   String breed;
-   int age;
-   String color;
-   void barking(){
-   }
-
-   void hungry(){
-   }
-
-   void sleeping(){
-   }
+                <h2 id="一、类的继承"><a href="#一、类的继承" class="headerlink" title="一、类的继承"></a>一、类的继承</h2><p>在面向对象编程中，继承是一个缩短代码以及复用代码的良好的机制。一个继承了父类的子类，包含了父类所有的方法，也可以重载或添加新的内容。</p>
+<h3 id="1-语法："><a href="#1-语法：" class="headerlink" title="1. 语法："></a>1. 语法：</h3><pre><code>[修饰符] class 子类名 extends 父类名 {
+    //子类体；
 }
-</code></pre><blockquote>
-<p>在Java语言中，Java的所用东西都要在类中实现。</p>
-</blockquote>
-<h3 id="2-类体"><a href="#2-类体" class="headerlink" title="2. 类体"></a>2. 类体</h3><h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><p>一个类中可以包含以下类型变量</p>
-<ul>
-<li><strong>局部变量：</strong>在方法、构造方法或者语句块中定义的变量被称为局部变量。变量声明和初始化都是在方法中，方法结束后，变量就会自动销毁。</li>
-<li><strong>成员变量：</strong>成员变量是定义在类中，方法体之外的变量。这种变量在创建对象的时候实例化。成员变量可以被类中方法、构造方法和特定类的语句块访问。</li>
-<li><strong>类变量：</strong>类变量也声明在类中，方法体之外，但必须声明为static类型。</li>
-</ul>
-<h4 id="成员方法"><a href="#成员方法" class="headerlink" title="成员方法"></a>成员方法</h4><p>类中设置的方法，Java建议类的成员方法的修饰符使用<code>private</code>。Java在调用方法的时候可以用类的实例化对象调用方法,如：<code>new 类名().方法名()</code></p>
-<ul>
-<li><strong>实例方法:</strong> </li>
-</ul>
-<pre><code>[修饰符] 返回值类型 成员方法名（参数列表）[throws 异常类型列表] { 
-    成员方法体
-}
-</code></pre><ul>
-<li><p><strong>成员方法的重载</strong><br>所谓的成员方法的重载是指在一个类中，同一个名称的成员方法可以被多次定义的现象，在每一个方法的参数类型和个数都不同。</p>
+</code></pre><h3 id="2-子类对父类成员的可访问特性"><a href="#2-子类对父类成员的可访问特性" class="headerlink" title="2. 子类对父类成员的可访问特性"></a>2. 子类对父类成员的可访问特性</h3><p>子类是对父类的一种延伸，但是子类对父类成员变量的访问性确实由访问特性控制的。<br>如果父类和子类在同一个包中，那么子类可以访问父类的具有public、protected和默认访问特性的成员方法，对于private访问特性的成员方法，需要通过父类提供的操作接口实现。<br>如果父类和子类不再同一个包中，那么子类只能访问父类的具有public和protected访问特性的成员变量，对于默认访问特性以及private的访问特性的成员变量只能通过父类的操作接口实现。<br><img src="https://ws1.sinaimg.cn/large/0077HGE3ly1g1w3r905aqj33402bs4qq.jpg" alt></p>
+<h3 id="3-子类构造方法的定义与执行"><a href="#3-子类构造方法的定义与执行" class="headerlink" title="3.子类构造方法的定义与执行"></a>3.子类构造方法的定义与执行</h3><p>在Java程序中，子类不负责调用父类的构造方法。在创建子类时需要在构造方法中利用super()调用父类的构造方法，注意这条语句要放在构造方法的第一行，如果子类没有调用父类的构造方法，子类会默认调用父类的无参构造方法。另外父类必须要构造无参构造方法，否则会出现编译错误。对于父类中的带参构造方法，子类不会默认调用，必须人工调用。</p>
+<h2 id="二、类的成员方法的重载与覆盖"><a href="#二、类的成员方法的重载与覆盖" class="headerlink" title="二、类的成员方法的重载与覆盖"></a>二、类的成员方法的重载与覆盖</h2><h3 id="1-重载与覆盖"><a href="#1-重载与覆盖" class="headerlink" title="1. 重载与覆盖"></a>1. 重载与覆盖</h3><ol>
+<li><p><strong>成员方法的重载</strong><br>所谓的重载是指在当一个类定义成员方法时，类定义一个与本类或父类的成员方法<strong>同名但参数列表不同</strong>的方法，在调用这个成员方法时，系统会根据参数列表匹配合适的成员方法。</p>
 </li>
-<li><p><strong>构造方法</strong><br>构造方法是在构造类的对象是使用的方法，其主要的作用就是初始化成员变量。构造方法不需要返回任何值，它在构造类对象时自动调用。构造方法也可以重载。注意：构造方法名和类名必须相同。</p>
-<pre><code>[修饰符] 类名(参数列表)
+<li><p><strong>成员方法的覆盖</strong><br>在Java中，成员方法的名称和参数列表统称为签名。当子类的成员变量定义一个和父类的成员方法<strong>同名且参数列表也相同</strong>的成员方法时，这个成员方法就覆盖了父类或本类的成员方法了。当调用这个成员方法时，系统就会调用这个新的成员方法。</p>
+</li>
+</ol>
+<h3 id="2-多态"><a href="#2-多态" class="headerlink" title="2. 多态"></a>2. 多态</h3><p>在Java程序中，多态性是值不同的类对象调用同一个签名的成员方法时，将会执行不同的代码段的现象。<br>实现多态的步骤：</p>
+<ol>
+<li>在子类中覆盖父类的成员方法</li>
+<li>定义父类的对象引用，并由它引用创建的父类对象。</li>
+</ol>
+<p>示例代码：</p>
+<pre><code>public class Main {
+    public static void main(String[] args) {
+        A class1 = new A();
+        A class2 = new B();
+        System.out.println(&quot;class1: a=&quot; + (class1).a);
+        System.out.println(&quot;class2: a=&quot; + ((B) class2).a);
+        class1.fun();
+        class2.fun();
+    }
+}
+
+class A {
+    public int a = 0;
+
+    public void fun() {
+        System.out.println(&quot;---A----&quot;);
+    }
+}
+
+class B extends A {
+    public int a =1;
+    public void fun() {
+        System.out.println(&quot;----B----&quot;);
+    }
+}
+</code></pre><h2 id="三-抽象类"><a href="#三-抽象类" class="headerlink" title="三. 抽象类"></a>三. 抽象类</h2><blockquote>
+<p>抽象类是对一种概念事物的抽象，将其设置为抽象类的原因就是他不是一个具体的事物，Java程序需要限制直接创建这个类的对象。</p>
+</blockquote>
+<ul>
+<li><strong>语法</strong></li>
+</ul>
+<p>在Java语言中，抽象类就是用abstract修饰符定义的类，其格式为：</p>
+<pre><code>[修饰符] abstract class 抽象类名 {
+    //  成员变量与成员方法
+}
+</code></pre><ul>
+<li><strong>注意事项</strong></li>
+</ul>
+<ol>
+<li>任何包含抽象方法的类必须声明为抽象类</li>
+<li>多态性：抽象类不能被实例化，但是可以创建抽象类的应用，然后用它引用子类该抽象类的某个可以实例化的子类的对象</li>
+<li>抽象类必须被子类继承，且子类必须实现父类的抽象方法</li>
+<li>static、private和final修饰符布鞥应用与抽象方法中 </li>
+</ol>
+<h2 id="四-接口"><a href="#四-接口" class="headerlink" title="四. 接口"></a>四. 接口</h2><blockquote>
+<p>在Java中，接口就是一种特殊的抽象类，其特性在于：<strong>接口的内部只允许包含常量和抽象方法</strong>。常量默认为<code>public static final</code>,抽象方法默认我<code>public abstract</code>。<br><strong>使用接口的目的是统一公共常量、规范公共的操作接口的管理，提高了代码的重用。</strong></p>
+</blockquote>
+<ul>
+<li><p>接口定义</p>
+<pre><code>[修饰符] interface 接口名 {
+  public static final int a = 0;       //常量
+  public abstract 返回值 方法名();    //抽象方法
+}
 </code></pre></li>
-</ul>
-<p>通常一个类中应该包含的成员方法：</p>
-<ul>
-<li><strong>构造方法：</strong>至少包含一个不带参数的构造方法与一个带完整参数的构造方法</li>
-<li><strong>更改器：</strong>可以保证在对象创建之后，可以更改对象的状态</li>
-<li><strong>获取器：</strong>可以保证随时获得对象的状态值</li>
-<li><strong>toString：</strong>将对象的状态值转换为字符串</li>
-<li><strong>equals：</strong>实现判断两个对象是否相等</li>
-</ul>
-<h3 id="3-类之间的关系"><a href="#3-类之间的关系" class="headerlink" title="3. 类之间的关系"></a>3. 类之间的关系</h3><blockquote>
-<p>类之间的关系可以归结为3类：依赖、聚合和继承</p>
+<li><p>实现接口</p>
+<pre><code>[修饰符] class 类名 implements 接口名 {
+  //实现抽象方法
+}
+</code></pre><h2 id="五-包"><a href="#五-包" class="headerlink" title="五. 包"></a>五. 包</h2><h3 id="1-定义"><a href="#1-定义" class="headerlink" title="1. 定义"></a>1. 定义</h3><blockquote>
+<p>在Java语言中，<strong>包</strong>是用于组织类和接口的机制。</p>
 </blockquote>
-<ul>
-<li>依赖：A类成员方法调用B类的成员方法</li>
-<li>聚合：类A的对象包含类B的对象</li>
-<li>继承：类A继承于类B，即类B中有类A的全部成员变量和成员方法</li>
+</li>
 </ul>
-<h2 id="二-对象"><a href="#二-对象" class="headerlink" title="二. 对象"></a>二. 对象</h2><blockquote>
-<p>对象是类的一个实例，有状态和行为。</p>
-</blockquote>
-<h3 id="1-创建对象"><a href="#1-创建对象" class="headerlink" title="1. 创建对象"></a>1. 创建对象</h3><ul>
-<li>定义对象的语法格式：</li>
-</ul>
-<pre><code>[修饰符] 类名 对象名;
-Data data;
-</code></pre><ul>
-<li>创建对象</li>
-</ul>
-<pre><code>new 类名(参数列表);
-new Data(10);
-</code></pre><ul>
-<li>定义创建对象也可以放在一起进行</li>
-</ul>
-<pre><code>Time time = new Time(10);
-</code></pre><p><strong>new运算符主要完成两项工作：</strong></p>
+<p>按照功能将类与接口分装在不同的包中有两点好处：</p>
 <ol>
-<li>为对象分配内存空间</li>
-<li>根据提供的参数格式调用与之匹配的构造方法，实现初始化成员变量的操作，然后返回对象的引用</li>
+<li>把功能相似或相关的类或接口组织在同一个包中，方便类的查找和使用，同时便于将若干个已存在的类或接口整体的加载到一个程序中</li>
+<li>避免出现名字冲突的现象(不同包中的文件名可以相同) </li>
+<li>包也限定了访问权限，拥有包访问权限的类才能访问某个包的类</li>
 </ol>
-<h3 id="2-对象成员的引用"><a href="#2-对象成员的引用" class="headerlink" title="2. 对象成员的引用"></a>2. 对象成员的引用</h3><pre><code>对象名.成员变量;
-对象名.成员方法(参数列表)
-</code></pre><h3 id="3-对象的清除"><a href="#3-对象的清除" class="headerlink" title="3. 对象的清除"></a>3. 对象的清除</h3><p>在Java中，对象的收回是通过Java虚拟机自动收回的，不用我们操心。</p>
-<h2 id="三-访问特性控制"><a href="#三-访问特性控制" class="headerlink" title="三. 访问特性控制"></a>三. 访问特性控制</h2><blockquote>
-<p>Java语言是通过控制标识符来控制类、数据、方法和接口的共享的，Java提供了四种访问特性控制符：</p>
+<ul>
+<li><strong>包的语法格式</strong></li>
+</ul>
+<pre><code>package net.java.util;
+public class Something{
+   ...
+}
+</code></pre><p>保存路径： <code>net/java/util/Something.java</code></p>
+<h3 id="2-包的创建与导入方式"><a href="#2-包的创建与导入方式" class="headerlink" title="2. 包的创建与导入方式"></a>2. 包的创建与导入方式</h3><p>创建包的时候，你需要为这个包取一个合适的名字。之后，如果其他的一个源文件包含了这个包提供的类、接口、枚举或者注释类型的时候，都必须将这个包的声明放在这个源文件的开头。包声明应该在源文件的第一行，每个源文件只能有一个包声明，这个文件中的每个类型都应用于它。<br>例子：</p>
+<pre><code>/* 文件名: Animal.java */
+package animals;
+
+interface Animal {
+   public void eat();
+   public void travel();
+}
+</code></pre><p>接下来在同一个包中加入该接口的实现：</p>
+<pre><code>package animals;
+
+/* 文件名 : MammalInt.java */
+public class MammalInt implements Animal{
+
+   public void eat(){
+      System.out.println(&quot;Mammal eats&quot;);
+   }
+
+   public void travel(){
+      System.out.println(&quot;Mammal travels&quot;);
+   } 
+
+   public int noOfLegs(){
+      return 0;
+   }
+
+   public static void main(String args[]){
+      MammalInt m = new MammalInt();
+      m.eat();
+      m.travel();
+   }
+}
+</code></pre><h3 id="3-import关键字"><a href="#3-import关键字" class="headerlink" title="3. import关键字"></a>3. import关键字</h3><p>为了能够使用某一个包的成员，Java提供了“import”语句导入使用包的成员。其语法格式为：</p>
+<pre><code>import package1[.package2…].(classname|*);
+</code></pre><h3 id="4-package的目录结构"><a href="#4-package的目录结构" class="headerlink" title="4. package的目录结构"></a>4. package的目录结构</h3><p>类放在包中会有两种主要的结果：</p>
+<ul>
+<li>包名成为类名的一部分</li>
+<li>包名必须与响应的字节码所在的目录结构相吻合<br>下面就是管理java文件的一种方式：<br>将类、接口等类型的源码放在一个文本中，这个文件的名字就是这个类的名字，并以.java作为扩展名。例如：</li>
+</ul>
+<pre><code>// 文件名 :  Car.java
+
+package vehicle;
+
+public class Car {
+   // 类实现  
+}
+</code></pre><p>接下来，把源文件放在一个目录中，这个目录要对应类所在包的名字。</p>
+<pre><code>....\vehicle\Car.java
+</code></pre><p>现在，正确的类名和路径将会是如下样子：<br>类名 -&gt; vehicle.Car<br>路径名 -&gt; vehicle\Car.java (在 windows 系统中)</p>
+<p>通常，一个公司使用它互联网域名的颠倒形式来作为它的包名，如：互联网域名为baidu.com，所有的包名都以com.baidu开头。包名中的每一个部分对应一个子目录。</p>
 <ol>
-<li>默认访问特性</li>
-<li>public（公有）访问特性</li>
-<li>private （私有）访问特性</li>
-<li>protected （保护）访问特性</li>
+<li><p>例如:有一个 com.runoob.test 的包，这个包包含一个叫做 Runoob.java 的源文件，那么相应的，应该有如下面的一连串子目录：<code>....\com\runoob\test\Runoob.java</code>编译的时候，编译器为包中定义的每个类、接口等类型各创建一个不同的输出文件，输出文件的名字就是这个类的名字，并加上 .class 作为扩展后缀。 例如：</p>
+<pre><code>// 文件名: Runoob.java
+package com.runoob.test;
+public class Runoob { 
+}
+class Google {
+     //类体 
+}
+</code></pre></li>
+<li><p>现在，用-d来编译这个文件,如下：</p>
+<pre><code>$javac -d . Runoob.java
+</code></pre></li>
+<li><p>这样就会像下面这样放置编译了的文件：</p>
+<pre><code>.\com\runoob\test\Runoob.class
+.\com\runoob\test\Google.class
+</code></pre></li>
+<li><p>然后就可以像下面这样导入所有\com\runoob\test\ 中定义的类、接口等：</p>
+<pre><code>import com.runoob.test.*;
+</code></pre></li>
+<li><p>编译之后的 .class 文件应该和 .java 源文件一样，它们放置的目录应该跟包的名字对应起来。但是，并不要求 .class 文件的路径跟相应的 .java 的路径一样。你可以分开来安排源码和类的目录。</p>
+<pre><code>&lt;path-one&gt;\sources\com\runoob\test\Runoob.java
+&lt;path-two&gt;\classes\com\runoob\test\Google.class
+</code></pre></li>
+<li><p>这样，就可以将类目录分享给其他的编程人员，而不用透露自己的源码。用这种方法管理源码和类文件可以让编译器和java 虚拟机（JVM）可以找到程序中使用的所有类型。<br>类目录的绝对路径叫做 <code>class path</code>。设置在系统变量 <code>CLASSPATH</code>中。编译器和 java 虚拟机通过将 package 名字加到 class path 后来构造 .class 文件的路径。<br><code>&lt;path- two&gt;\classes</code> 是 <code>class path</code>，<code>package</code> 名字是 <code>com.runoob.test</code>,而编译器和 JVM 会在 <code>&lt;path-two&gt;\classes\com\runoob\test</code>中找 .class 文件。<br>一个 class path 可能会包含好几个路径，多路径应该用分隔符分开。默认情况下，编译器和 JVM 查找当前目录。JAR 文件按包含 Java 平台相关的类，所以他们的目录默认放在了 class path 中。</p>
+</li>
 </ol>
-</blockquote>
-<h3 id="1-默认访问特性"><a href="#1-默认访问特性" class="headerlink" title="1. 默认访问特性"></a>1. 默认访问特性</h3><p>如果在定义类、接口、成员变量与成员方法时没有定义访问特性，那么Java默认他的访问特性为默认访问特性。具有默认访问特性的类、接口、成员变量与成员方法，只能被本类和同一个包中的其他类、接口接成员方法应用。（他可以阻止其他包任何形式的引用。）</p>
-<h3 id="2-public访问特性"><a href="#2-public访问特性" class="headerlink" title="2. public访问特性"></a>2. public访问特性</h3><p>public访问特性最具有开放性，没有任何访问限制。<br>通常会将公共类或者作为公共接口的的成员方法指定为public访问特性；建议不要将成员变量设置为public，否则会破坏代数据的隐藏性。</p>
-<h3 id="3-private访问特性"><a href="#3-private访问特性" class="headerlink" title="3. private访问特性"></a>3. private访问特性</h3><p>将数据与操作封装在一起，并将数据的组织隐藏起来，利用成员方法作为对外的操作接口。这样不当可以提高程序的安全性和可靠性，还有有益于日后的维护、扩展和重用。<br>这种访问特性实现数据隐藏的最佳方式。<br>应用于类成员。只能被本类直接引用。</p>
-<h3 id="4-protected访问特性"><a href="#4-protected访问特性" class="headerlink" title="4. protected访问特性"></a>4. protected访问特性</h3><p>可以被本类、本包中的其他类和其他包中的子类访问。他的访问特性介于默认和public之间。</p>
-<blockquote>
-<p>小技巧：如何阅读代码<br>作为一个程序员，面对一段从未见识过的代码，不必每行代码都细读（当然，这也不可能，真正的项目里代码有万千行，你自己读读试试），只需要将代码按照结构分成不同段，大致了解每一部分代码的事项的功能即可。比如，一段Java代码，按照类分成不同的部分，基本一段好的程序，从类的名字中就能知道这个类的作用的。</p>
-</blockquote>
-<h2 id="四-内部类"><a href="#四-内部类" class="headerlink" title="四. 内部类"></a>四. 内部类</h2><p>Java的类是允许嵌套的，嵌套在一个类内部的被称为<strong>内部类</strong>。没有嵌套在任何类中的类被称为顶层类。</p>
-<h2 id="五-类的静态成员"><a href="#五-类的静态成员" class="headerlink" title="五. 类的静态成员"></a>五. 类的静态成员</h2><p>Java语言提供了两种形式的成员：</p>
+<h3 id="5-设置CLASSPATH系统变量"><a href="#5-设置CLASSPATH系统变量" class="headerlink" title="5. 设置CLASSPATH系统变量"></a>5. 设置CLASSPATH系统变量</h3><p><strong>用下面的命令显示当前的CLASSPATH变量：</strong></p>
 <ul>
-<li>静态成员</li>
-<li>实例成员（非静态）</li>
+<li>Windows 平台（DOS 命令行下）：C:> set CLASSPATH</li>
+<li>UNIX 平台（Bourne shell 下）：# echo $CLASSPATH</li>
 </ul>
-<h3 id="1-静态成员变量"><a href="#1-静态成员变量" class="headerlink" title="1. 静态成员变量"></a>1. 静态成员变量</h3><ul>
-<li>在分文修饰符之后加上static修饰符就称为静态成员变量。例如：<code>public static int staticMember</code></li>
-<li>静态成员变量值在家在类是创建一个副本，无论未来创建同一个类的多少个对象都将共享同一个副本。</li>
-</ul>
-<h3 id="2-静态成员方法"><a href="#2-静态成员方法" class="headerlink" title="2. 静态成员方法"></a>2. 静态成员方法</h3><h2 id="六-可编辑字符串类"><a href="#六-可编辑字符串类" class="headerlink" title="六. 可编辑字符串类"></a>六. 可编辑字符串类</h2><p>可编辑的字符串类：StringBuffer<br>StringBuffer类滴哦你故意在java.lang包中，其中包含以下3个private成员变量</p>
+<p><strong>删除当前CLASSPATH变量内容：</strong></p>
 <ul>
-<li>private char value[]：存放字符串的缓冲区</li>
-<li>private int count：缓冲区中存放字符的个数</li>
-<li>private boolean shared：缓冲区是否共享的标志</li>
+<li>Windows 平台（DOS 命令行下）：C:> set CLASSPATH=</li>
+<li>UNIX 平台（Bourne shell 下）：# unset CLASSPATH; export CLASSPATH</li>
 </ul>
-<p>另外，另外还提供了3个构造方法：</p>
-<ul>
-<li>public stringBuffer();  默认缓冲区的大小为16个字符</li>
-<li>public stringBuffer(int length); 缓冲区的大小为length个字符</li>
-<li>public stringBuffer(String str); 缓冲区的大小为字符串str的长度加上16，并将str存入缓冲区</li>
-</ul>
-<p><strong>StringBuffer用于获取可变字符串相应信息的public成员方法：</strong></p>
-<ol>
-<li>ing length() 返回当前可变字符床的长度</li>
-<li>int capacity() 放回当前缓冲区的大小</li>
-<li>char charAt(int index） 返回下标为index的位置的字符串，第一个字符的下标为0.（如果index非法将抛出IndexOutOfBoundsException异常）</li>
-<li>void getChars(int sreBegin, int srcEnd, char dst[], int destBegin) 获取从sreBegin到srcEnd的字符串，并存入dst数组中，在dst中的起始位置为dstBegin。如果srcBegin和srcEnd非法将抛出StringIndexOutOfBoundsException异常</li>
-<li>String substring(int start, int end) 返回从start到end的字符串</li>
-<li>int indexOf(String str, int fromIndex) 返回字符串str在缓冲区从fromIndex开始，第一次出现的手字符的下标。</li>
-<li>String toString(）将StringBuffer内容转换成String形式输出</li>
-<li>void setChar(int index, char ch)将字符串中下标为index的字符设置为ch</li>
-<li>StringBuffer append(obj) 这个成员方法利用String类中的ValueOf(）方法，将obj转换成字符串，并将这些字符串追加到缓冲区的尾部</li>
-<li>StringBuffer delete(int start，int end) 删除缓冲区start到end的所有字符</li>
-<li>StringBuffer replace(int start, int end, String str）将str字符串替换从start～end-1 的字符串并返回修改后的StringBuffer对象</li>
-<li>StringBuffer insert(int index, char str[], int offset, int len) 将str数组从0ffset开始，长度为len的字符串插入到缓冲区从index起始的位置处</li>
-<li>StringBuffer inset(int offset, Object obj) 将obj字符串插入到缓冲区偏移量为offset的位置处。</li>
-</ol>
+<p><strong>设置CLASSPATH变量:</strong><br>Windows 平台（DOS 命令行下）：<code>C:\&gt; set CLASSPATH=C:\users\jack\java\classes</code><br>UNIX 平台（Bourne shell 下）：<code># CLASSPATH=/home/jack/java/classes; export CLASSPATH</code></p>
 
             </div>
             <hr>
@@ -699,7 +746,7 @@ new Data(10);
                     </span>
                     <a href="http://yoursite.com" class="b-link-green">浅时光</a>
                     <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
-                    <a href="/2019/04/02/yao-dian-ti-lian-lei-yu-dui-xiang/" class="b-link-green">要点提炼——类与对象</a>
+                    <a href="/2019/04/09/yao-dian-ti-lian-ji-cheng-yu-duo-tai/" class="b-link-green">要点提炼——继承与多态</a>
                 </p>
             </div>
         </div>
@@ -981,7 +1028,8 @@ new Data(10);
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/04/09/yao-dian-ti-lian-ji-cheng-yu-duo-tai/">
                     <div class="card-image">
@@ -998,9 +1046,63 @@ new Data(10);
     //子类体；
 </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-09
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/JAVA/" class="post-category" target="_blank">
+                                    JAVA
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/java/" target="_blank">
+                        <span class="chip bg-color">java</span>
+                    </a>
+                    
+                    <a href="/tags/要点提炼/" target="_blank">
+                        <span class="chip bg-color">要点提炼</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/04/02/yao-dian-ti-lian-lei-yu-dui-xiang/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="要点提炼——类与对象">
+                        
+                        <span class="card-title">要点提炼——类与对象</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary">一. 类1. 类的定义在Java中，类是一种引用型数据类型。类是一种现实世界的事物的抽象，它包含了事物的属性和行为,对应类中的属性和方法java语言的类的格式：
+ [修饰符] class 类名 {
+    类体
+ }
+public clas</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-04-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1024,41 +1126,6 @@ new Data(10);
                         <span class="chip bg-color">要点提炼</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/03/26/yu-zhong-zhao-kai-ling-dao-gan-bu-da-hui/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="渝中召开领导干部大会 传达学习陈敏尔书记参加渝中代表团审议时的讲话精神">
-                        
-                        <span class="card-title">渝中召开领导干部大会 传达学习陈敏尔书记参加渝中代表团审议时的讲话精神</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary">
-
-今（1）日，渝中召开领导干部大会，传达学习市委书记陈敏尔在参加渝中代表团审议时的讲话精神。渝中区委书记黄玉林出席会议并讲话，区委副书记、区长商奎，区人大常委会主任米绍林，区政协主席陈大奎，区委副书记何家利以及全体在家区级领导，全区正处级</div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-03-26
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-user fa-fw"></i>
-                            Yazhou Su
-                            
-                        </span>
-                    </div>
                 </div>
                 
             </div>
